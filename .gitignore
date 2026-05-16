@@ -1,2 +1,8 @@
 accounts/*
 docs/
+pdfroom_archive/
+pdfroom_archive_selected/
+daily_sync.py
+*.ipynb
+__pycache__/
+*.pyc

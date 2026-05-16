@@ -34,7 +34,8 @@ class NotebookAgent:
         os.environ["NOTEBOOKLM_STORAGE_PATH"] = self.storage_path
         
         try:
-            self.client = await NotebookLMClient.from_storage(self.storage_path, keepalive=600)
+            # Increased timeout to 300s to prevent ADD_SOURCE timeouts
+            self.client = await NotebookLMClient.from_storage(self.storage_path, keepalive=600, timeout=300)
             await self.client.__aenter__()
             return True
         except Exception:

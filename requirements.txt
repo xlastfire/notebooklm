@@ -1,0 +1,10 @@
+# Core Library
+# Install via: pip install notebooklm-py
+# Or if it's a specific fork: git+https://github.com/teng-lin/notebooklm-py.git
+notebooklm-py
+
+# UI and Formatting
+rich
+
+# Async utilities
+aiohttp
