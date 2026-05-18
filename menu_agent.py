@@ -293,7 +293,7 @@ class WizardAgent:
             idx = int(choice)
             if 1 <= idx <= len(types):
                 art_type = types[idx-1]
-                lang = Prompt.ask("Target Language", default="English")
+                lang = Prompt.ask("Target Language", default="Sinhala")
                 instr = Prompt.ask("Any custom instructions? (Leave blank for default)", default="")
                 console.print(f"[bold yellow]Starting {art_type} generation in {lang} background...[/]")
                 asyncio.create_task(self.agent.generate_artifact_bg(art_type, instr, language=lang))
@@ -308,7 +308,7 @@ class WizardAgent:
     async def sub_auto_pilot(self):
         self.header("Full Auto-Pilot Pipeline")
         topic = Prompt.ask("Enter topic for full research + podcast")
-        lang = Prompt.ask("Target Language", default="English")
+        lang = Prompt.ask("Target Language", default="Sinhala")
         
         if topic:
             console.print(f"[bold yellow]Starting Full Auto-Pilot in background ({lang}) for '{topic}'...[/]")
