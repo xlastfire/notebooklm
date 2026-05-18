@@ -37,6 +37,7 @@ class NotebookAgent:
             # Increased timeout to 300s to prevent ADD_SOURCE timeouts
             self.client = await NotebookLMClient.from_storage(self.storage_path, keepalive=600, timeout=300)
             await self.client.__aenter__()
+            await self.client.settings.set_output_language("si")
             return True
         except Exception:
             return False
@@ -102,7 +103,7 @@ class NotebookAgent:
         if not self.client or not self.current_nb_id: return None
         return await self.client.chat.ask(self.current_nb_id, query, conversation_id=conversation_id)
 
-    async def generate_artifact(self, art_type: str, instructions: str = "", language: str = "English"):
+    async def generate_artifact(self, art_type: str, instructions: str = "", language: str = "Sinhala"):
         if not self.client or not self.current_nb_id: return None
         nb_id = self.current_nb_id
         
@@ -135,7 +136,7 @@ class NotebookAgent:
             return await self.client.artifacts.generate_data_table(nb_id)
         return None
 
-    async def generate_artifact_bg(self, art_type: str, instructions: str = "", language: str = "English"):
+    async def generate_artifact_bg(self, art_type: str, instructions: str = "", language: str = "Sinhala"):
         if not self.client or not self.current_nb_id: return
         nb_id = self.current_nb_id
         self.active_tasks_count += 1
@@ -232,7 +233,7 @@ class NotebookAgent:
         finally:
             self.active_tasks_count -= 1
 
-    async def auto_pilot_bg(self, topic: str, language: str = "English"):
+    async def auto_pilot_bg(self, topic: str, language: str = "Sinhala"):
         self.active_tasks_count += 1
         try:
             # 1. Create NB

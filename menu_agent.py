@@ -28,6 +28,12 @@ class WizardAgent:
 
     def header(self, subtitle=""):
         self.clear()
+
+        # Professional ASCII Art Title
+        rprint("[bold cyan]╔════════════════════════════════════════════════════════════════════╗[/]")
+        rprint("[bold cyan]║[/]   [bold white]📓 NotebookLM[/] [bold yellow]Wizard Agent[/]                                [bold cyan]║[/]")
+        rprint("[bold cyan]╚════════════════════════════════════════════════════════════════════╝[/]")
+
         acc = self.agent.storage_path.split(os.sep)[-1] if self.agent.storage_path else "None"
         nb = self.agent.current_nb_title or "None"
         status_info = ""
@@ -35,8 +41,8 @@ class WizardAgent:
             status_info = f" | [bold yellow]Tasks: {self.agent.active_tasks_count} active[/]"
         
         acc_1 = '.'.join(acc.split('\\')[-1].split('.')[:-1])
-        info = f"Account: [bold green]{acc_1}[/] | NB: [bold blue]{nb}[/]{status_info}"
-        console.print(Panel(info, title="[bold cyan]NotebookLM Wizard Agent[/]", border_style="bold blue"))
+        info = f"👤 [bold green]{acc_1}[/] | 📓 [bold blue]{nb}[/]{status_info}"
+        console.print(Panel(info, border_style="bold blue"))
         
         # Show pending notifications
         while self.agent.notifications:
@@ -293,7 +299,7 @@ class WizardAgent:
             idx = int(choice)
             if 1 <= idx <= len(types):
                 art_type = types[idx-1]
-                lang = Prompt.ask("Target Language", default="English")
+                lang = Prompt.ask("Target Language", default="Sinhala")
                 instr = Prompt.ask("Any custom instructions? (Leave blank for default)", default="")
                 console.print(f"[bold yellow]Starting {art_type} generation in {lang} background...[/]")
                 asyncio.create_task(self.agent.generate_artifact_bg(art_type, instr, language=lang))
@@ -308,7 +314,7 @@ class WizardAgent:
     async def sub_auto_pilot(self):
         self.header("Full Auto-Pilot Pipeline")
         topic = Prompt.ask("Enter topic for full research + podcast")
-        lang = Prompt.ask("Target Language", default="English")
+        lang = Prompt.ask("Target Language", default="Sinhala")
         
         if topic:
             console.print(f"[bold yellow]Starting Full Auto-Pilot in background ({lang}) for '{topic}'...[/]")
