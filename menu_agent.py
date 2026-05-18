@@ -28,6 +28,12 @@ class WizardAgent:
 
     def header(self, subtitle=""):
         self.clear()
+
+        # Professional ASCII Art Title
+        rprint("[bold cyan]╔════════════════════════════════════════════════════════════════════╗[/]")
+        rprint("[bold cyan]║[/]   [bold white]📓 NotebookLM[/] [bold yellow]Wizard Agent[/]                                [bold cyan]║[/]")
+        rprint("[bold cyan]╚════════════════════════════════════════════════════════════════════╝[/]")
+
         acc = self.agent.storage_path.split(os.sep)[-1] if self.agent.storage_path else "None"
         nb = self.agent.current_nb_title or "None"
         status_info = ""
@@ -35,8 +41,8 @@ class WizardAgent:
             status_info = f" | [bold yellow]Tasks: {self.agent.active_tasks_count} active[/]"
         
         acc_1 = '.'.join(acc.split('\\')[-1].split('.')[:-1])
-        info = f"Account: [bold green]{acc_1}[/] | NB: [bold blue]{nb}[/]{status_info}"
-        console.print(Panel(info, title="[bold cyan]NotebookLM Wizard Agent[/]", border_style="bold blue"))
+        info = f"👤 [bold green]{acc_1}[/] | 📓 [bold blue]{nb}[/]{status_info}"
+        console.print(Panel(info, border_style="bold blue"))
         
         # Show pending notifications
         while self.agent.notifications:

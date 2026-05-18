@@ -1,5 +1,10 @@
 # NotebookLM Wizard Agent 🚀
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Built with Rich](https://img.shields.io/badge/built%20with-Rich-green.svg)](https://github.com/Textualize/rich)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/xlastfire/notebooklm/graphs/commit-activity)
+
 A powerful, multi-account CLI agent for **NotebookLM** that automates research, source management, and artifact generation with a professional wizard interface. Built for power users who need to manage complex research workflows across multiple Google accounts.
 
 ## ✨ Key Features
@@ -9,6 +14,7 @@ A powerful, multi-account CLI agent for **NotebookLM** that automates research, 
 - **Auto-Pilot Mode**: One-click pipeline to create a notebook, perform research, and generate a downloadable podcast (Audio Overview).
 - **Deep Research**: High-quality automated web research and source importing.
 - **Artifact Management**: Generate and download Quizzes, Study Guides, Mind Maps, Audio Overviews, and more in any target language.
+- **Native Sinhala Support**: Specialized defaults for Sinhala ("si") language output and artifact generation.
 - **Session Persistence**: Built-in `keepalive` mechanism that automatically rotates Google cookies to prevent session timeouts during long-running tasks.
 - **Windows Optimized**: Fixed common asyncio hangs on Windows using `WindowsSelectorEventLoopPolicy`.
 
